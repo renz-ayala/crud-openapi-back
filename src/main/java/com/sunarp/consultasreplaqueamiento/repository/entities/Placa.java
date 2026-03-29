@@ -1,4 +1,4 @@
-package com.sunarp.consultasreplaqueamiento.model.entities;
+package com.sunarp.consultasreplaqueamiento.repository.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

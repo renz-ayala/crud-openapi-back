@@ -1,7 +1,7 @@
 package com.sunarp.consultasreplaqueamiento.repository;
 
+import com.sunarp.consultasreplaqueamiento.repository.entities.Placa;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.sunarp.consultasreplaqueamiento.model.entities.Placa;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

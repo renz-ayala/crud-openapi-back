@@ -1,4 +1,4 @@
-package com.sunarp.consultasreplaqueamiento.model.dtos;
+package com.sunarp.consultasreplaqueamiento.presentation.dtos;
 
 import org.springframework.http.HttpStatus;
 

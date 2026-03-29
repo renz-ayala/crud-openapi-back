@@ -1,5 +1,5 @@
 package com.sunarp.consultasreplaqueamiento.service.implementation;
-import com.sunarp.consultasreplaqueamiento.model.dtos.PlacaResponse;
+import com.sunarp.consultasreplaqueamiento.presentation.dtos.PlacaResponse;
 
 import com.sunarp.consultasreplaqueamiento.service.interfaces.PlacaService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,11 +19,12 @@ public class PlacaServiceImpl implements PlacaService {
     }
 
     @Override
-    public PlacaResponse verificarReplaqueo(String numero) {
+    public PlacaResponse getDatosPlaca(String numero) {
 
         String response;
+        String validators = "^[A-Z0-9Ñ]{6,7}$";
 
-        if (numero == null || numero.trim().length() < 4 || numero.trim().length() > 7) {
+        if (numero == null || !numero.matches(validators)) {
             response = "El formato de la placa es inválido";
             return PlacaResponse.error(numero, response, HttpStatus.BAD_REQUEST);
         }
