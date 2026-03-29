@@ -1,0 +1,7 @@
+BD_PASSWORD=
+BD_USER=
+DEPLOY=
+DB_HOST=host.docker.internal
+DB_PORT=
+DB_NAME=
+SECRET_KEY=
