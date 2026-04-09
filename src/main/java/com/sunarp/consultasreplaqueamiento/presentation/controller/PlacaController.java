@@ -5,6 +5,7 @@ import com.sunarp.consultasreplaqueamiento.presentation.dtos.PlacaResponse;
 import com.sunarp.consultasreplaqueamiento.service.interfaces.CaptchaService;
 import com.sunarp.consultasreplaqueamiento.service.interfaces.PlacaService;
 import com.sunarp.consultasreplaqueamiento.service.interfaces.ReporteService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,17 +16,12 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/placas")
+@RequiredArgsConstructor
 public class PlacaController {
 
     private final PlacaService placaService;
     private final ReporteService reporteService;
     private final CaptchaService captchaService;
-
-    public PlacaController(PlacaService placaService, ReporteService reporteService, CaptchaService captchaService) {
-        this.placaService = placaService;
-        this.reporteService = reporteService;
-        this.captchaService = captchaService;
-    }
 
     @PostMapping(value = "/verificar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PlacaResponse> verificar(@RequestBody PlacaRequest data) {

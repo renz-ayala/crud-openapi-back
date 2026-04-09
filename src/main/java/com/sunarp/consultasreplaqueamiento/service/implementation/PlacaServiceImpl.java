@@ -2,6 +2,7 @@ package com.sunarp.consultasreplaqueamiento.service.implementation;
 import com.sunarp.consultasreplaqueamiento.presentation.dtos.PlacaResponse;
 
 import com.sunarp.consultasreplaqueamiento.service.interfaces.PlacaService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -10,13 +11,10 @@ import com.sunarp.consultasreplaqueamiento.repository.PlacaRepository;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class PlacaServiceImpl implements PlacaService {
 
     private final PlacaRepository placaRepository;
-
-    public PlacaServiceImpl(PlacaRepository placaRepository) {
-        this.placaRepository = placaRepository;
-    }
 
     @Override
     public PlacaResponse getDatosPlaca(String numero) {

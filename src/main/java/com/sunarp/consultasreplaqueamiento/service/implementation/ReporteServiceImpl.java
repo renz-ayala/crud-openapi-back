@@ -3,6 +3,7 @@ package com.sunarp.consultasreplaqueamiento.service.implementation;
 import com.sunarp.consultasreplaqueamiento.presentation.dtos.PlacaResponse;
 import com.sunarp.consultasreplaqueamiento.service.interfaces.PlacaService;
 import com.sunarp.consultasreplaqueamiento.service.interfaces.ReporteService;
+import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,10 @@ import java.util.Map;
 import java.util.HashMap;
 
 @Service
+@RequiredArgsConstructor
 public class ReporteServiceImpl implements ReporteService{
 
     private final PlacaService placaService;
-
-    public ReporteServiceImpl(PlacaService placaService) {
-        this.placaService = placaService;
-    }
 
     @Override
     public byte[] getRepotePlaca(String numeroPlaca) throws Exception {

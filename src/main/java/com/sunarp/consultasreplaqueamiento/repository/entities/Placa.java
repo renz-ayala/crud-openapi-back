@@ -11,38 +11,38 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "PLACA", schema = "EXTRANET")
+@Table(name = "placa", schema = "pv")
 public class Placa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_PLACA")
+    @Column(name = "id_placa")
     private Long id;
 
-    @Column(name = "NUMERO_PLACA", nullable = false, unique = true, length = 10)
+    @Column(name = "numero_placa", nullable = false, unique = true, length = 10)
     private String numeroPlaca;
 
-    @Column(name = "MARCA", length = 50)
+    @Column(name = "marca", length = 50)
     private String marca;
 
-    @Column(name = "MODELO", length = 50)
+    @Column(name = "modelo", length = 50)
     private String modelo;
 
-    @Column(name = "COLOR", length = 30)
+    @Column(name = "color", length = 30)
     private String color;
 
-    @Column(name = "ANIO_FABRICACION")
+    @Column(name = "anio_fabricacion")
     private Integer anioFabricacion;
 
-    @Column(name = "PROPIETARIO_DNI", length = 15)
+    @Column(name = "propietario_dni", length = 15)
     private String propietarioDni;
 
-    @Column(name = "ESTADO", length = 20)
+    @Column(name = "estado", length = 20)
     private String estado = "ACTIVO";
 
-    @Column(name = "FECHA_REGISTRO", updatable = false)
+    @Column(name = "fecha_registro", updatable = false)
     private LocalDateTime fechaRegistro;
 
-    @Column(name = "OBSERVACIONES", length = 500)
+    @Column(name = "observaciones", length = 500)
     private String observaciones;
 
     @PrePersist
