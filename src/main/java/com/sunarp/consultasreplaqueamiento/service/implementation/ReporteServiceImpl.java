@@ -23,15 +23,7 @@ public class ReporteServiceImpl implements ReporteService{
         PlacaResponse respuesta = placaService.getDatosPlaca(numeroPlaca);
         if (respuesta != null && respuesta.status() == HttpStatus.OK) {
 
-            Map<String, Object> parameters = new HashMap<>();
-            parameters.put("numPlaca", respuesta.numPlaca());
-            parameters.put("marca", respuesta.marca());
-            parameters.put("modelo", respuesta.modelo());
-            parameters.put("color", respuesta.color());
-            parameters.put("propietario", respuesta.propietario());
-            parameters.put("observaciones", respuesta.observaciones());
-            parameters.put("estado", respuesta.estado());
-            parameters.put("anioFabricacion", respuesta.anioFabricacion());
+            Map<String, Object> parameters = getStringObjectMap(respuesta);
 
             InputStream reportStream = getClass().getClassLoader().getResourceAsStream("report/placa.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
@@ -41,5 +33,18 @@ public class ReporteServiceImpl implements ReporteService{
             return JasperExportManager.exportReportToPdf(jasperPrint);
         }
         throw new Exception();
+    }
+
+    private static Map<String, Object> getStringObjectMap(PlacaResponse respuesta) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("numPlaca", respuesta.numPlaca());
+        parameters.put("marca", respuesta.marca());
+        parameters.put("modelo", respuesta.modelo());
+        parameters.put("color", respuesta.color());
+        parameters.put("propietario", respuesta.propietario());
+        parameters.put("observaciones", respuesta.observaciones());
+        parameters.put("estado", respuesta.estado());
+        parameters.put("anioFabricacion", respuesta.anioFabricacion());
+        return parameters;
     }
 }
