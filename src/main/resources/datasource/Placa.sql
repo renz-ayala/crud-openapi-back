@@ -18,3 +18,20 @@ CREATE TABLE SCHEMA_.PLACA (
 
     CONSTRAINT check_estado CHECK (estado IN ('ACTIVO', 'INACTIVO', 'ALERTA', 'ROBADO'))
 );
+
+INSERT ALL
+    INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
+    VALUES ('ABC123', 'Toyota', 'Corolla', 'Blanco', 2022, '12345678A', 'ACTIVO', 'Vehículo nuevo de flota')
+
+    INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
+    VALUES ('XYZ987', 'Hyundai', 'Tucson', 'Gris Plata', 2020, '87654321B', 'ACTIVO', NULL)
+
+    INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
+    VALUES ('DEF456', 'Nissan', 'Sentra', 'Negro', 2015, '45678912C', 'ROBADO', 'Reportado el 15 de marzo')
+
+    INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
+    VALUES ('GHI789', 'Kia', 'Sportage', 'Rojo', 2018, '78912345D', 'INACTIVO', 'Baja por siniestro total')
+
+    INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
+    VALUES ('JKL012', 'Ford', 'Ranger', 'Azul Metálico', 2023, '32165498E', 'ALERTA', 'Pendiente de verificación de motor')
+SELECT 1 FROM DUAL;
