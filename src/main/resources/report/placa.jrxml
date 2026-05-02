@@ -1,168 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="placa" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3deb036e-f1d5-435b-bbef-96bfe7cda76b">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="placa_profesional" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3deb036e-f1d5-435b-bbef-96bfe7cda76b">
 	<parameter name="numPlaca" class="java.lang.String"/>
 	<parameter name="marca" class="java.lang.String"/>
 	<parameter name="modelo" class="java.lang.String"/>
 	<parameter name="color" class="java.lang.String"/>
 	<parameter name="propietario" class="java.lang.String"/>
-	<parameter name="observaciones" class="java.lang.String"/>
 	<parameter name="estado" class="java.lang.String"/>
 	<parameter name="anioFabricacion" class="java.lang.Integer"/>
-	<queryString>
-		<![CDATA[]]>
-	</queryString>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<parameter name="fechaRegistro" class="java.time.LocalDateTime"/>
 	<title>
-		<band height="236" splitType="Stretch">
-			<textField>
-				<reportElement x="130" y="70" width="130" height="20" uuid="92eb359c-1fb5-4edf-bdff-9c61ffbf1841">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{numPlaca}]]></textFieldExpression>
-			</textField>
-			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="460" y="0" width="100" height="20" uuid="b03c0736-f1d7-4dbc-af64-d2e0e403426a"/>
-				<textElement>
-					<font isItalic="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
+		<band height="100" splitType="Stretch">
 			<staticText>
-				<reportElement x="360" y="0" width="100" height="20" uuid="af0cda19-c07a-4043-840a-2f6bb3fd4246"/>
-				<textElement>
-					<font isItalic="true"/>
-				</textElement>
-				<text><![CDATA[Fecha de impresión:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="20" width="203" height="30" uuid="b1ca0666-7349-4c84-bd87-62a4907b70cf"/>
-				<textElement>
+				<reportElement x="0" y="30" width="555" height="30" forecolor="#1A5276" uuid="b1ca0666-7349-4c84-bd87-62a4907b70cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Información Vehicular]]></text>
+				<text><![CDATA[CONSULTA DE PLACAS]]></text>
 			</staticText>
+			<line>
+				<reportElement x="0" y="70" width="555" height="1" forecolor="#1A5276" uuid="15cf799d-74a7-4790-b4a4-556055444e5f"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="320" splitType="Stretch">
+			<!-- SECCIÓN: DETALLES DEL VEHÍCULO -->
 			<staticText>
-				<reportElement x="0" y="70" width="130" height="20" uuid="15cf799d-74a7-4790-b4a4-556055444e5f"/>
-				<textElement>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" backcolor="#F2F2F2" uuid="9931e009-9c25-4960-95f7-1eeb454951e2"/>
+				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Número de matrícula:]]></text>
+				<text><![CDATA[  DETALLES DEL VEHICULO]]></text>
+			</staticText>
+
+			<!-- FILAS DE DATOS -->
+			<staticText>
+				<reportElement x="0" y="35" width="150" height="20" uuid="07410da7-7ee3-4828-a0f1-f1ca2adbb365"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Número de Placa:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="130" y="90" width="130" height="20" uuid="f1dc2d52-3185-42d0-879a-68b875cb7b62"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
+				<reportElement x="150" y="35" width="405" height="20" uuid="62ebe94a-cb5f-4e4b-9642-ab826c75fe67"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{numPlaca}]]></textFieldExpression>
 			</textField>
+
 			<staticText>
-				<reportElement x="0" y="90" width="130" height="20" uuid="24340bf2-c775-4aec-b321-3d4404eaf563"/>
-				<textElement>
+				<reportElement x="0" y="55" width="150" height="20" uuid="a1676503-b12e-424b-877b-2eba22a0b41b"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Marca:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="55" width="405" height="20" uuid="4b7d57b3-4835-4c0b-b41c-70f4e0c6e765"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{marca}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="0" y="75" width="150" height="20" uuid="a1676503-b12e-424b-877b-2eba22a0b41c"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="75" width="405" height="20" uuid="4b7d57b3-4835-4c0b-b41c-70f4e0c6e766"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{modelo}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="0" y="95" width="150" height="20" uuid="a1676503-b12e-424b-877b-2eba22a0b41d"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Color:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="95" width="405" height="20" uuid="4b7d57b3-4835-4c0b-b41c-70f4e0c6e767"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{color}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="0" y="115" width="150" height="20" uuid="a1676503-b12e-424b-877b-2eba22a0b41e"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Año de Fabricación:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="115" width="405" height="20" uuid="4b7d57b3-4835-4c0b-b41c-70f4e0c6e768"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{anioFabricacion}]]></textFieldExpression>
+			</textField>
+
+			<!-- SECCIÓN: INFORMACIÓN EXTRA -->
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="160" width="555" height="25" backcolor="#F2F2F2" uuid="bed856fa-1997-4b8d-bcad-b9ab202ec329"/>
+				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
+				<text><![CDATA[  INFORMACIÓN EXTRA]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="0" y="195" width="150" height="20" uuid="22d81b77-226b-4755-802c-6414324d04eb"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Propietario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="195" width="405" height="20" uuid="6b1ced2b-2e98-44b1-a397-34ab30735197"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{propietario}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="0" y="215" width="150" height="20" uuid="22d81b77-226b-4755-802c-6414324d04ec"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="150" y="120" width="270" height="30" uuid="a668f460-93eb-4f79-af22-3e3ca3695dee"/>
-				<textElement textAlignment="Center">
-					<font size="16" isBold="true" isItalic="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
+				<reportElement x="150" y="215" width="405" height="20" uuid="6b1ced2b-2e98-44b1-a397-34ab30735198"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
 			</textField>
+
 			<staticText>
-				<reportElement x="0" y="163" width="100" height="22" uuid="9931e009-9c25-4960-95f7-1eeb454951e2"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[placa del vehículo:]]></text>
+				<reportElement x="0" y="235" width="150" height="20" uuid="22d81b77-226b-4755-802c-6414324d04ed"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"><font isBold="true"/></textElement>
+				<text><![CDATA[Fecha de Registro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="180" y="165" width="100" height="20" uuid="62ebe94a-cb5f-4e4b-9642-ab826c75fe67"/>
-				<textFieldExpression><![CDATA[$P{marca}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="185" width="100" height="20" uuid="07410da7-7ee3-4828-a0f1-f1ca2adbb365"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[modelo:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="180" y="183" width="100" height="20" uuid="b9dddb05-8e68-4b5d-a09f-2acc4e4ede00"/>
-				<textFieldExpression><![CDATA[$P{modelo}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="205" width="100" height="20" uuid="a1676503-b12e-424b-877b-2eba22a0b41b"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[color:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="180" y="205" width="100" height="20" uuid="4b7d57b3-4835-4c0b-b41c-70f4e0c6e765"/>
-				<textFieldExpression><![CDATA[$P{color}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="0" width="90" height="20" uuid="dc24b182-8d57-4dda-8a47-cc1aa17bd6f5"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="90" y="0" width="100" height="20" uuid="25ebbb2c-567f-4cb9-a29c-2b39cf1bf46f"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="150" y="235" width="405" height="20" uuid="6b1ced2b-2e98-44b1-a397-34ab30735199"/>
+				<box><bottomPen lineWidth="0.5" lineColor="#1A5276"/></box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{fechaRegistro}]]></textFieldExpression>
 			</textField>
 		</band>
-	</title>
-	<pageHeader>
-		<band height="47" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="-10" width="180" height="20" uuid="bed856fa-1997-4b8d-bcad-b9ab202ec329"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Documento de identidad del propietario:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="180" y="-10" width="100" height="20" uuid="6ef10f2d-e591-4025-bae4-9c7d7070b185"/>
-				<textFieldExpression><![CDATA[$P{propietario}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="10" width="100" height="20" uuid="22d81b77-226b-4755-802c-6414324d04eb"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Año de fabricación:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="180" y="10" width="100" height="20" uuid="6b1ced2b-2e98-44b1-a397-34ab30735197"/>
-				<textFieldExpression><![CDATA[$P{anioFabricacion}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
 	<pageFooter>
-		<band height="62" splitType="Stretch"/>
+		<band height="30">
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="0" y="10" width="555" height="20" forecolor="#787878" uuid="b03c0736-f1d7-4dbc-af64-d2e0e403426a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

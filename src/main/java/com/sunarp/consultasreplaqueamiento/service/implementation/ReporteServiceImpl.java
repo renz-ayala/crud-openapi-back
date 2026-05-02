@@ -45,6 +45,7 @@ public class ReporteServiceImpl implements ReporteService{
         parameters.put("observaciones", respuesta.observaciones());
         parameters.put("estado", respuesta.estado());
         parameters.put("anioFabricacion", respuesta.anioFabricacion());
+        parameters.put("fechaRegistro", respuesta.fechaRegistro());
         return parameters;
     }
 }
